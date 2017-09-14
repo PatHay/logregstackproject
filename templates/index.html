@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>User Registration</title>
+        <style>
+        body{
+            height:100%;
+            width:100%;
+          }
+        #top{
+            height: 10%;
+            width: 100%;
+            text-align: left;
+        }
+        .flashes{
+            height: 30%;
+            width: 50%;
+            background-color: red;
+            font-size: 12pt;
+          }
+        #formBox{
+            height: 20%;
+            margin-top: 20px;
+        }
+        </style>
+    </head>
+    <body>
+        <h1 id = "top">User Registration</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class=flashes>
+                {% for category, message in messages %}
+                    <h2 class="{{ category }}">{{message}}</h2>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form action='/register' method='post' id='formBox'>
+            <ul style = "list-style: none;">
+                <li>First Name: <input type = 'text' name = "first_name"></li>
+                <li>Last Name: <input type = 'text' name = "last_name">
+                <li>Email: <input type='text' name="email"></li>
+                <li>Password: <input type = 'text' name = "password">
+                <li>Confirm Password: <input type = 'text' name = "confirm_password">
+                <li><input type = 'submit' value = 'submit registration'></li>
+            </ul>
+        </form>
+        <hr>
+        <h1 id="bottom">Login</h1>
+        <form action='/login' method='post' id='loginBox'>
+            <ul style = "list-style: none;">
+                <li>Email Address: <input type = 'text' name = "email"></li>
+                <li>Password: <input type = 'text' name = "password">
+                <li><input type = 'submit' value = 'submit login'></li>
+            </ul>
+        </form>
+    </body>
+</html>    

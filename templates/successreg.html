@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <title>Successful Registration!</title>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #good {
+            width: 50%;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="good">Thank you for registering with us {{ session['first_name'] }} {{ session['last_name'] }}</h1>
+</body>
+
+</html>
